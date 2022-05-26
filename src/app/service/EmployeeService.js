@@ -5,3 +5,4 @@ class EmployeeService {
         return result
     }
 }
+module.exports = new EmployeeService()
