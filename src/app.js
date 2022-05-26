@@ -1,4 +1,5 @@
 const express = require('express')
+const router = require('./routes')
 
 class App {
     constructor() {
@@ -11,7 +12,7 @@ class App {
         this.server.use(express.json()) 
     }
     routes(){
-        Router(this.server)
+        router(this.server)
     }
 }
 
