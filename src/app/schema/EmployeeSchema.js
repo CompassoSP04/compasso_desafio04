@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const EmplooyeeSchema = new mongoose.Schema({
+const EmployeeSchema = new mongoose.Schema({
 
     name: {
         type: String,
@@ -23,3 +23,7 @@ const EmplooyeeSchema = new mongoose.Schema({
         type: Date
     }
 })
+
+const Employee = mongoose.model('Employee', EmployeeSchema)
+
+module.exports = Employee
