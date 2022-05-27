@@ -8,9 +8,10 @@ class EmployeeController {
             return  res.status(201).json(result)
         } catch(error) {
             return res.status(400).json(error)
-    //List All    
+    
         } 
     }
+    //List All   
     async list(req, res) {
             const result = await EmployeeService.list(req.query)
             return res.status(200).json(result)
