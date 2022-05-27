@@ -13,6 +13,11 @@ class EmployeeService {
     async list(payload) {
         const result = await EmployeeRepository.list(payload)
         return result
+    }
+    //List by Id
+    async getById(payload) {
+        const result = await EmployeeRepository.getById(payload)
+        return result
         
     }
 }
