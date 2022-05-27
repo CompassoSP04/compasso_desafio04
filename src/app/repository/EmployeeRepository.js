@@ -1,7 +1,10 @@
 const EmployeeSchema = require('../schema/EmployeeSchema')
 class EmployeeRepository {
-    create(payload) {
+    async create(payload) {
         return EmployeeSchema.create(payload);
+    }
+    async list(payload) {
+        return EmployeeSchema.find(payload)
     }
 }
 
