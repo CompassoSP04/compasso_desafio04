@@ -24,6 +24,11 @@ class EmployeeService {
         const result = await EmployeeRepository.updateEmployee(id, body)
         return result
     }
+    //Delete
+    async deleteEmployee(payload) {
+        const result = await EmployeeRepository.deleteEmployee(payload)
+        return result
+    }
     
 }
 module.exports = new EmployeeService()
