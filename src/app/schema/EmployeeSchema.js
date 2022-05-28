@@ -2,13 +2,7 @@ const mongoose = require('mongoose')
 const uuid = require('uuid')
 
 const EmployeeSchema = new mongoose.Schema({
-
-    employee_id: {
-        type: String,
-        default: uuid.v4,
-        index: true,
-        mongoose:mongoose.ObjectId
-    },
+    
     name: {
         type: String,
         required: true
@@ -39,6 +33,17 @@ const EmployeeSchema = new mongoose.Schema({
 }, 
   {timestamps: true, versionKey: false}
 )
+
+EmployeeSchema.virtual('employee_id').get(function() {
+    return this._id.toHexString();
+})
+EmployeeSchema.set('toJSON',{
+    virtuals: true,
+    transform: (doc, converted) => {
+        delete converted._id,
+        delete converted.id
+    }
+})
 
 const Employee = mongoose.model('Employee', EmployeeSchema)
 
