@@ -9,6 +9,9 @@ class EmployeeRepository {
     async getById(payload) {
         return EmployeeSchema.findById(payload)
     }
+    async updateEmployee(id, body) {
+        return EmployeeSchema.findByIdAndUpdate(id, body)
+    }
 }
 
 module.exports = new EmployeeRepository()
