@@ -1,14 +1,13 @@
 const mongoose = require('mongoose')
 const uuid = require('uuid')
 
-
 const ProductSchema = new mongoose.Schema({
-
-    employee_id: {
+   
+    product_id: {
         type: String,
         default: uuid.v4,
         index: true,
-        mongoose: mongoose.ObjectId
+        mongoose:mongoose.ObjectId
     },
     name: {
         type: String,
@@ -20,9 +19,13 @@ const ProductSchema = new mongoose.Schema({
 
     },
     price: {
-        type: String,
+        type: Number,
         required: true
     },
+    employee_id: {
+        type: String,
+        ref: 'Employee'
+    }
 
 })
 
