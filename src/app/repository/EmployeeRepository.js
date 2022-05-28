@@ -12,6 +12,9 @@ class EmployeeRepository {
     async updateEmployee(id, body) {
         return EmployeeSchema.findByIdAndUpdate(id, body)
     }
-}
+    async deleteEmployee(payload) {
+        return EmployeeSchema.findByIdAndDelete(payload)
+    }
+}   
 
 module.exports = new EmployeeRepository()
