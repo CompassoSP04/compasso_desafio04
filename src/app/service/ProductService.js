@@ -9,5 +9,10 @@ class ProductService {
         const result = await ProductRepository.create(payload)
         return result
     }
+    //List All
+    async list(payload) {
+        const result = await ProductRepository.list(payload)
+        return result
+    }
 }
 module.exports = new ProductService()

@@ -23,7 +23,7 @@ const ProductSchema = new mongoose.Schema({
         required: true
     },
     employee_id: {
-        type: String,
+        type:  String,
         ref: 'Employee'
     }
 
