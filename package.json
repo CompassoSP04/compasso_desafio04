@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/CompassoSP04/compasso_desafio04#readme",
   "dependencies": {
+    "@joi/date": "^2.1.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "joi": "^17.6.0",
     "moment": "^2.29.3",
     "mongoose": "^6.3.4",
     "uuid": "^8.3.2"
