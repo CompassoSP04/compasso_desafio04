@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-
 const ProductSchema = new mongoose.Schema({
 
     employee_id: {
@@ -18,10 +17,11 @@ const ProductSchema = new mongoose.Schema({
 
     },
     price: {
-        type: String,
+        type: Number,
         required: true
     },
 },
+
 
 {timestamps: false, versionKey: false}
 )

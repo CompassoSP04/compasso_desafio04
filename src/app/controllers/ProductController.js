@@ -10,5 +10,10 @@ class ProductController {
 
         }
     }
+    //List All   
+    async list(req, res) {
+        const result = await ProductService.list(req.query)
+        return res.status(200).json(result)
+    }
 }
 module.exports = new ProductController()
