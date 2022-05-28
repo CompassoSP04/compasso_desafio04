@@ -21,8 +21,8 @@ const ProductSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-
 },
+
 {timestamps: false, versionKey: false}
 )
 ProductSchema.virtual('product_id').get(function() {
