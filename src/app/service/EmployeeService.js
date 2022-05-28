@@ -18,7 +18,12 @@ class EmployeeService {
     async getById(payload) {
         const result = await EmployeeRepository.getById(payload)
         return result
-        
     }
+    //Update
+    async updateEmployee(id, body) {
+        const result = await EmployeeRepository.updateEmployee(id, body)
+        return result
+    }
+    
 }
 module.exports = new EmployeeService()
