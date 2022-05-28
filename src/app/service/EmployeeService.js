@@ -13,7 +13,22 @@ class EmployeeService {
     async list(payload) {
         const result = await EmployeeRepository.list(payload)
         return result
-        
     }
+    //List by Id
+    async getById(payload) {
+        const result = await EmployeeRepository.getById(payload)
+        return result
+    }
+    //Update
+    async updateEmployee(id, body) {
+        const result = await EmployeeRepository.updateEmployee(id, body)
+        return result
+    }
+    //Delete
+    async deleteEmployee(payload) {
+        const result = await EmployeeRepository.deleteEmployee(payload)
+        return result
+    }
+    
 }
 module.exports = new EmployeeService()
