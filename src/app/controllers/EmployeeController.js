@@ -13,7 +13,7 @@ class EmployeeController {
     }
     //List All   
     async list(req, res) {
-      const payload = req.body
+      const payload = req.query
       try {
         const result = await EmployeeService.list(payload)
         return res.status(200).json(result)

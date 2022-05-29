@@ -26,7 +26,7 @@ const ProductSchema = new mongoose.Schema({
 {timestamps: false, versionKey: false}
 )
 ProductSchema.virtual('product_id').get(function() {
-    return this._id.toHexString();
+    return this._id
 })
 ProductSchema.set('toJSON',{
     virtuals: true,
