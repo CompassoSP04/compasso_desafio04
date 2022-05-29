@@ -7,12 +7,8 @@ class EmployeeController {
             const result = await EmployeeService.create(req.body)
             return  res.status(201).json(result)
         } catch(error) {
-            return res.status(400).json({
-              message: "Bad Request",
-              details: [{
-                message: error.message
-              }]
-            })
+            return res.status(400).json(error)
+    
         } 
     }
     //List All   
@@ -22,12 +18,7 @@ class EmployeeController {
         const result = await EmployeeService.list(payload)
         return res.status(200).json(result)
       } catch (error) {
-        return res.status(400).json({
-          message: "Bad Request",
-          details: [{
-            message: error.message
-          }]
-        })
+        return res.status(400).json(error)
       }
 
     }
@@ -38,51 +29,25 @@ class EmployeeController {
           const result = await EmployeeService.getById(req.params.id);
           return res.status(200).json(result);
         } catch (error) {
-          return res.status(400).json({
-            message: "Bad Request",
-            details: [{
-              message: error.message
-            }]
-          });
+          return res.status(400).json(error);
         }
       }
     //Update
     async update(req, res) {
       try {
         const result = await EmployeeService.updateEmployee(req.params.id, req.body)
-        return res.status(200).json({
-          message: "Success",
-          details: [{
-            message: `The id was successfully Updated`
-          }]
-        })
-
+        return res.status(200).json(result)
       } catch (error) {
-        return res.status(400).json({
-          message: "Bad Request",
-          details: [{
-            message: error.message
-          }]
-        })
+        return res.status(400).json(error)
       }
     }
     //Delete
     async delete(req, res) {
       try {
         const result = await EmployeeService.deleteEmployee(req.params.id)
-        return res.status(200).json({
-          message: "Success",
-          details: [{
-            message: `The id was successfully deleted`
-          }]
-        })
+        return res.status(204).json(result)
       } catch (error) {
-        return res.status(400).json({
-          message: "Success",
-          details: [{
-            message: `Id not found`
-          }]
-        })
+        return res.status(400).json(error)
       }
     }
 } 
