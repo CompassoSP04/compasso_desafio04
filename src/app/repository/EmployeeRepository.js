@@ -4,7 +4,7 @@ class EmployeeRepository {
         return EmployeeSchema.create(payload)
     }
     async list(payload) {
-        return EmployeeSchema.find(payload)
+        return EmployeeSchema.paginate({payload}, {limit: 2})
     }
     async getById(payload) {
         return EmployeeSchema.findById(payload)

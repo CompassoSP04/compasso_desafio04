@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 const uuid = require('uuid')
+const moongosePaginate = require('mongoose-paginate-v2')
+
 
 const EmployeeSchema = new mongoose.Schema({
     
@@ -44,6 +46,7 @@ EmployeeSchema.set('toJSON',{
         delete converted.id
     }
 })
+EmployeeSchema.plugin(moongosePaginate)
 
 const Employee = mongoose.model('Employee', EmployeeSchema)
 
