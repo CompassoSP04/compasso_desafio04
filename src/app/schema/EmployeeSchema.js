@@ -35,12 +35,12 @@ const EmployeeSchema = new mongoose.Schema({
 )
 
 EmployeeSchema.virtual('employee_id').get(function() {
-    return this._id.toHexString();
+    return this._id
 })
 EmployeeSchema.set('toJSON',{
     virtuals: true,
     transform: (doc, converted) => {
-        delete converted._id,
+        delete converted._id
         delete converted.id
     }
 })

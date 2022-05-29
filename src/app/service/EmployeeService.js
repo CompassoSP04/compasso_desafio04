@@ -1,12 +1,13 @@
-const res = require('express/lib/response')
 const EmployeeRepository = require('../repository/EmployeeRepository')
 const Employee = require('../schema/EmployeeSchema')
+const moment = require('moment')
 
 class EmployeeService {
 
     //Create
     async create(payload) {
         const result = await EmployeeRepository.create(payload)
+        const birthFormat = moment(result.birthday, 'YYYY/MM/DD').format('DD/MM/YYYY')
         return result
     }
     //List All

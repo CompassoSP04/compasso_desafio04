@@ -13,8 +13,14 @@ class EmployeeController {
     }
     //List All   
     async list(req, res) {
-            const result = await EmployeeService.list(req.query)
-            return res.status(200).json(result)
+      const payload = req.query
+      try {
+        const result = await EmployeeService.list(payload)
+        return res.status(200).json(result)
+      } catch (error) {
+        return res.status(400).json(error)
+      }
+
     }
 
     //List by Id
