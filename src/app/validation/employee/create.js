@@ -9,13 +9,14 @@ module.exports = async (req, res, next) => {
         if (number.length != 11) return false;
 
         return true;
+
        }
 
         const schema = Joi.object({
-            name: Joi.string().requerid(),
-            cpf: Joi.string().requerid(),
-            office: Joi.string().requerid(),
-            birthday: Joi.date().format('DD/MM/YYYY').max('now').requerid()
+            name: Joi.string().required(),
+            cpf: Joi.string().required(),
+            office: Joi.string().required(),
+            birthday: Joi.date().format('DD/MM/YYYY').max('now').required()
         })
 
         const { error } = await schema.validate(req.body, { abortEarl: true })
