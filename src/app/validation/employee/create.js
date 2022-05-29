@@ -3,6 +3,14 @@ const Joi = require('joi').extend(JoiDate)
 
 module.exports = async (req, res, next) => {
     try {
+
+      function formatCpf(text) {
+        const badchars = /[^\d]/g
+        const mask = /(\d{3})(\d{3})(\d{3})(\d{2})/
+        const cpf = new String(text).replace(badchars, "");
+        return cpf.replace(mask, "$1.$2.$3-$4");
+    }
+
        function isValidCPF(number) {
 
         if (number == "00000000000") return false;
@@ -13,9 +21,9 @@ module.exports = async (req, res, next) => {
        }
 
         const schema = Joi.object({
-            name: Joi.string().required(),
-            cpf: Joi.string().required(),
-            office: Joi.string().required(),
+            name: Joi.string().min(3).max(30).required().trim(),
+            cpf: Joi.number().required(),
+            office: Joi.string().required().valid('gerente','vendedor','caixa'),
             birthday: Joi.date().format('DD/MM/YYYY').max('now').required()
         })
 
