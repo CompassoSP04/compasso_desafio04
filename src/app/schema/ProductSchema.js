@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const moongosePaginate = require('mongoose-paginate-v2')
 const ProductSchema = new mongoose.Schema({
 
     employee_id: {
@@ -36,6 +37,7 @@ ProductSchema.set('toJSON',{
     }
 })
 
+ProductSchema.plugin(moongosePaginate)
 const Product = mongoose.model('Product', ProductSchema)
 
 module.exports = Product
