@@ -1,8 +1,7 @@
 const mongoose = require('mongoose')
-const uuid = require('uuid')
 
 const EmployeeSchema = new mongoose.Schema({
-    
+
     name: {
         type: String,
         required: true
@@ -21,27 +20,7 @@ const EmployeeSchema = new mongoose.Schema({
         required: true
     },
     birthday: {
-        type: Date,
-        required: true
-    },
-    situation: {
-        type: String,
-        enum: ['active', 'deactivate'],
-        default: 'active',
-        require: true
-    }
-}, 
-  {timestamps: true, versionKey: false}
-)
-
-EmployeeSchema.virtual('employee_id').get(function() {
-    return this._id
-})
-EmployeeSchema.set('toJSON',{
-    virtuals: true,
-    transform: (doc, converted) => {
-        delete converted._id
-        delete converted.id
+        type: Date
     }
 })
 
