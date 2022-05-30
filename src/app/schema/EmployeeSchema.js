@@ -23,7 +23,7 @@ const EmployeeSchema = new mongoose.Schema({
         required: true
     },
     birthday: {
-        type: Date,
+        type: String,
         required: true
     },
     situation: {
@@ -36,6 +36,13 @@ const EmployeeSchema = new mongoose.Schema({
   {timestamps: true, versionKey: false}
 )
 
+function formatCpf(text) {
+    const badchars = /[^\d]/g
+    const mask = /(\d{3})(\d{3})(\d{3})(\d{2})/
+    const cpf = new String(text).replace(badchars, "");
+    return cpf.replace(mask, "$1.$2.$3-$4");
+}
+
 EmployeeSchema.virtual('employee_id').get(function() {
     return this._id
 })
@@ -44,6 +51,7 @@ EmployeeSchema.set('toJSON',{
     transform: (doc, converted) => {
         delete converted._id
         delete converted.id
+        converted.cpf = formatCpf(converted.cpf)
     }
 })
 EmployeeSchema.plugin(moongosePaginate)
