@@ -127,6 +127,7 @@ http://localhost:3000/api/v1/employee/
 `Status Code: 200 OK`
 ```
 {
+    "Employee: [
         {
         "name": "Teste Viera",
         "cpf": "12314512341",
@@ -147,7 +148,11 @@ http://localhost:3000/api/v1/employee/
         "updatedAt": "2022-05-29T22:31:11.307Z",
         "employee_id": "6293f42f1b7e14b9291976a8"
     }
-]
+],
+    "totalCount": 69,
+    "pageSize": 25,
+    "totalPages": 3,
+    "currentPage": 1
 }
 ```
 <br>
@@ -296,23 +301,28 @@ http://localhost:3000/api/v1/product/
 ```
 ### Body Example
 ```
-[
-    {
-        "employee_id": "629141c268f6ef1d797d39ab",
-        "name": "notebook dell",
-        "category": "eletronico",
-        "price": 3499.99,
-        "product_id": "629295758de3cdb4fa87a30a"
-    },
-    {
-        "employee_id": "62929f7d355256ca20e19133"
-        "name": "Smartphone",
-        "category": "eletronico",
-        "price": "2500"
-        "product_id: "6293fa9936776ae920fbed22"
-    }
-
-]
+{
+    "Product": [
+        {
+            "employee_id": "629141c268f6ef1d797d39ab",
+            "name": "notebook dell",
+            "category": "eletronico",
+            "price": 3499.99,
+            "product_id": "629295758de3cdb4fa87a30a"
+        },
+        {
+            "employee_id": "62929f7d355256ca20e19133"
+            "name": "Smartphone",
+            "category": "eletronico",
+            "price": "2500"
+            "product_id: "6293fa9936776ae920fbed22"
+        }
+    ],
+    "totalCount": 290,
+    "pageSize": 25,
+    "totalPages": 12,
+    "currentPage": 1
+}
 ```
 
 
