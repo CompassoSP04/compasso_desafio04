@@ -23,5 +23,10 @@ class ProductRepository {
         };
         return ProductSchema.paginate(payload, options, {})
     }
+
+    async getById(payload) {
+        return ProductSchema.findById(payload)
+    }
+
 }
 module.exports = new ProductRepository()

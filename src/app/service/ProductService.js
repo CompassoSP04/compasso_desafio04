@@ -14,5 +14,10 @@ class ProductService {
         const result = await ProductRepository.list(payload)
         return result
     }
+    //List by Id
+    async getById(payload) {
+        const result = await EmployeeRepository.getById(payload)
+        return result
+    }
 }
 module.exports = new ProductService()
