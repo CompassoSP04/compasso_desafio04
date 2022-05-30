@@ -50,12 +50,7 @@ class EmployeeController {
     async update(req, res) {
       try {
         const result = await EmployeeService.updateEmployee(req.params.id, req.body)
-        return res.status(200).json({
-          message: "Success",
-          details: [{
-            message: `The id was successfully Updated`
-          }]
-        })
+        return res.status(200).json(result)
 
       } catch (error) {
         return res.status(400).json({
@@ -70,7 +65,7 @@ class EmployeeController {
     async delete(req, res) {
       try {
         const result = await EmployeeService.deleteEmployee(req.params.id)
-        return res.status(200).json({
+        return res.status(204).json({
           message: "Success",
           details: [{
             message: `The id was successfully deleted`
