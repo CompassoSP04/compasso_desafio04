@@ -4,7 +4,23 @@ class ProductRepository {
         return ProductSchema.create(payload)
     }
     async list(payload) {
-        return ProductSchema.paginate({payload}, {limit: 25})
+        const paginateFields = {
+            totalDocs: 'totalCount',
+            docs: 'Product',
+            page: 'currentPage',
+            nextPage: false,
+            prevPage: false,
+            pagingCounter: false,
+            meta: false,
+            hasPrevPage: false,
+            hasNextPage: false,
+        };
+        const options = {
+            page: 0,
+            limit: 25,
+            customLabels: paginateFields
+        };
+        return ProductSchema.paginate(payload, options, {})
     }
 }
 module.exports = new ProductRepository()
