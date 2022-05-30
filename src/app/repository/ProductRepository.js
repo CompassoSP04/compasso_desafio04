@@ -14,6 +14,7 @@ class ProductRepository {
             meta: false,
             hasPrevPage: false,
             hasNextPage: false,
+            limit: 'pageSize'
         };
         const options = {
             page: 0,
