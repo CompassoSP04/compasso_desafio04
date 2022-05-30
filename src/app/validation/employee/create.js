@@ -9,7 +9,8 @@ module.exports = async (req, res, next) => {
             name: Joi.string().min(3).max(30).required().trim(),
             cpf: Joi.string().required(),
             office: Joi.string().required().valid('gerente','vendedor','caixa'),
-            birthday: Joi.date().format('DD/MM/YYYY').max('now').required(),           
+           // birthday: Joi.date().format('DD/MM/YYYY').max('now').required(),  
+            birthday: Joi.date().format('DD/MM/YYYY').min('01/01/1900').max('01/01/2006').required(),         
             situation: Joi.string().default('active')
         })
 
