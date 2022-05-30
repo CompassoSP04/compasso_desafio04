@@ -4,7 +4,7 @@
 
 
 ## Description
-Employee and Product Management API
+Employee and Product information management API - created using Node.js and MongoDB
 
 ## Topics 
 
