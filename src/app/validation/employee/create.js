@@ -9,7 +9,7 @@ module.exports = async (req, res, next) => {
             name: Joi.string().min(3).max(30).required().trim(),
             cpf: Joi.string().required(),
             office: Joi.string().required().valid('gerente','vendedor','caixa'),
-            birthday: Joi.date().format('DD/MM/YYYY').max('now').required(),
+            birthday: Joi.date().format('DD/MM/YYYY').max('now').required(),           
             situation: Joi.string().default('active')
         })
 
@@ -18,7 +18,9 @@ module.exports = async (req, res, next) => {
         if (error) {
             throw {
               message: 'Bad Request',
-              details: error.details
+              details: [ {
+                message : error.message
+              } ]
             };
           }
       
