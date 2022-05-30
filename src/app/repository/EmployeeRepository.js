@@ -4,7 +4,25 @@ class EmployeeRepository {
         return EmployeeSchema.create(payload)
     }
     async list(payload) {
-        return EmployeeSchema.paginate({payload}, {limit: 25})
+        const paginateFields = {
+            totalDocs: 'totalCount',
+            docs: 'Employee',
+            page: 'currentPage',
+            nextPage: false,
+            prevPage: false,
+            pagingCounter: false,
+            meta: false,
+            hasPrevPage: false,
+            hasNextPage: false,
+            limit: 'pageSize'
+        };
+        const options = {
+            page: 0,
+            limit: 25,
+            customLabels: paginateFields
+        };
+        return EmployeeSchema.paginate(payload, options, {})
+        
     }
     async getById(payload) {
         return EmployeeSchema.findById(payload)

@@ -38,6 +38,8 @@ ProductSchema.set('toJSON',{
 })
 
 ProductSchema.plugin(moongosePaginate)
+
 const Product = mongoose.model('Product', ProductSchema)
+Product.paginate().then({})
 
 module.exports = Product
