@@ -33,11 +33,11 @@ Employee and Product Management API
 
 ### Node Version:
 ```
-v16.14.11
+v14.16.0
 ```
 ### NPM Version:
 ```
-v16.14.11
+v6.14.11
 ```
 ... 
 
