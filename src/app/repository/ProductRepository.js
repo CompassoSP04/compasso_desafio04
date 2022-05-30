@@ -4,7 +4,7 @@ class ProductRepository {
         return ProductSchema.create(payload)
     }
     async list(payload) {
-        return ProductSchema.paginate({payload}, {limit: 2})
+        return ProductSchema.paginate({payload}, {limit: 25})
     }
 }
 module.exports = new ProductRepository()
