@@ -1,5 +1,5 @@
 <p align="center">
-<h1>Desafio 03 - PB NodeJS - Spectrum </h1> 
+<h1> Challenge 03 - PB NodeJS - Spectrum Squad 🚀 </h1> 
 </p>
 
 
